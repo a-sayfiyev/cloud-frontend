@@ -62,12 +62,18 @@
                 let itemInput = $('#' + formId + 'Item');
                 let itemList = $('#' + formId + 'List');
                 
-                $.post('/' + formId, { itemName: itemInput.val() }, function(data) {
+                $.post('https://cloud-backend-0o2o.onrender.com' + formId, { itemName: itemInput.val() }, function (data) {
                     itemList.append('<li>' + data.itemName + '</li>');
                     itemInput.val(''); // clear input
+                }).fail(function (xhr, status, error) {
+                    console.error('Error: ', status, error);
                 });
+
             });
         });
     </script>
 </body>
 </html>
+
+
+35.160.120.126
